@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +10,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { box-sizing: border-box; }
-
+    
+    * {
+      box-sizing: border-box;
+    }
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* evita scroll horizontal */
+  }
     body {
       margin: 0;
       font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background-color: #ffffff;
       overflow-x: hidden;
     }
+        .hero-wrap {
+      position: relative;
+      width: 100%;
+    }
 
+    /* === HEADER SUPERPUESTO SOBRE LA IMAGEN === */
   header {
     position: absolute;
     inset: 0 auto auto 0; /* top:0; left:0; elimina el espacio de borde */
@@ -36,7 +49,11 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   }
 
-    header img { height: 80px; object-fit: contain; }
+  header img {
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease, height 0.3s ease;
+  }
 
     nav a {
       margin: 0 15px;
@@ -45,7 +62,10 @@
       font-weight: 500;
       transition: color 0.3s;
     }
-    nav a:hover { color: #0e9a9a; }
+
+    nav a:hover {
+      color: #0e9a9a;
+    }
 
     .social-icons a {
       color: #444;
@@ -53,7 +73,10 @@
       font-size: 18px;
       transition: color 0.3s;
     }
-    .social-icons a:hover { color: #0e9a9a; }
+
+    .social-icons a:hover {
+      color: #0e9a9a;
+    }
 
     .hero-section img {
       width: 100%;
@@ -66,6 +89,7 @@
       background-color: #f5f5f5;
       padding: 20px 0;
     }
+
     .label-section span {
       background-color: #6c4c2b;
       color: white;
@@ -82,37 +106,27 @@
       gap: 20px;
       padding: 40px 60px;
     }
+
     .gallery-item img {
       width: 100%;
       border-radius: 8px;
       object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
+    
 
-    /* === SECCIONES PRINCIPALES === */
-    .section-block {
+    /* === SECCIONES MISIÓN Y VISIÓN === */
+    .mission-section,
+    .vision-section {
       display: grid;
-      grid-template-columns: 0.05fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 0.05fr;
       align-items: stretch;
       width: 100%;
       margin-top: 40px;
-      background-color: #ffffff;
-      position: relative;
     }
 
-    /* SOLO MISIÓN AJUSTADA */
-    .section-block--mission {
-      grid-template-columns: 3fr 3fr 0.2fr;
-    }
-
-    .side-rectangle {
-      background-color: #737764;
-      width: 100%;
-      border-top: 100px solid #ffffff;
-      border-bottom: 100px solid #ffffff;
-    }
-
-    .text-block {
+    .mission-text,
+    .vision-text {
       background-color: #737764;
       color: #f5f5e9;
       display: flex;
@@ -123,35 +137,105 @@
       border-bottom: 100px solid #ffffff;
     }
 
-    .text-block h2 {
+    .mission-text h2,
+    .vision-text h2 {
       font-size: 36px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       text-align: center;
     }
 
-    .divider-line {
-      height: 2px;
-      background-color: #d9c9a6;
-      width: 100%;
-      margin: 20px 0;
-      border-radius: 1px;
-    }
-
-    .text-block p {
+    .mission-text p,
+    .vision-text p {
       font-size: 18px;
       line-height: 1.7;
       text-align: justify;
     }
 
-    .image-block img {
+    .mission-image img,
+    .vision-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border: 10px solid #eed9ba;
       display: block;
+      border: 10px solid #eed9ba;
     }
 
+    .mission-rectangle,
+    .vision-rectangle {
+      background-color: #737764;
+      width: 100%;
+      height: auto;
+      border-top: 100px solid #ffffff;
+      border-bottom: 100px solid #ffffff;
+    }
+
+    .vision-section {
+      grid-template-columns: 0.05fr 1fr 1fr;
+    }
+    /* === SECCIÓN QUIÉNES SOMOS === */
+.quienes-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.05fr;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 40px;
+}
+.quienes-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 10px solid #eed9ba;
+}
+.quienes-text {
+  background-color: #737764;
+  color: #f5f5e9;
+  padding: 40px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 100px solid #ffffff;
+  border-bottom: 100px solid #ffffff;
+}
+.quienes-text h2 {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.divider-line {
+  height: 2px;
+  background-color: #d9c9a6;
+  width: 100%;
+  margin: 10px 0 20px;
+}
+
+.quienes-text p {
+  font-size: 17px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.quienes-rectangle {
+  background-color: #737764;
+  width: 100%;
+  border-top: 100px solid #ffffff;
+  border-bottom: 100px solid #ffffff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .quienes-section {
+    grid-template-columns: 1fr;
+  }
+  .quienes-text {
+    padding: 40px 30px;
+  }
+  .quienes-rectangle {
+    display: none;
+  }
+}
 
     /* === SECCIÓN BLANCA CENTRADA === */
     .info-section {
@@ -297,9 +381,6 @@
         display: inline-block;
         margin: 6px 10px;
       }
-      .hero-section{
-        margin-top: 33%;
-      }
     }
     .divider-line {
   height: 2px;
@@ -310,25 +391,27 @@
 
   </style>
 </head>
-<body>
-  <header>
-    <img src="https://i.ibb.co/KxkmFNN3/REYSALH-Logo.png" alt="Logo Grupo Inmobiliario">
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Madera Teca</a>
-      <a href="#">Producción de Cacao</a>
-      <a href="#">Loteos y Servicios</a>
-    </nav>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
-    </div>
-  </header>
 
-  <section class="hero-section">
-    <img src="img/Portada Inicio_1.png" alt="Finca y Plantación de Teca (Río Lempa)">
-  </section>
+<body>
+  <div class="hero-wrap">
+    <header>
+      <img src="img/REYSALH Logo.png" alt="Logo Grupo Inmobiliario">
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Madera Teca</a>
+        <a href="#">Producción de Cacao</a>
+        <a href="#">Loteos y Servicios</a>
+      </nav>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </header>
+   <section class="hero-section">
+      <img src="img/Portada Inicio_1.png" alt="Finca y Plantación de Teca (Río Lempa)">
+    </section>
+  </div>
 
   <section class="label-section">
     <span>Finca y Plantación de Teca (Río Lempa)</span>
@@ -342,54 +425,48 @@
     <div class="gallery-item"><img src="img/gale5.png" alt="Teca 5"></div>
     <div class="gallery-item"><img src="img/gale6.png" alt="Teca 6"></div>
   </section>
-
-  <!-- SECCIÓN QUIÉNES SOMOS -->
-  <section class="section-block">
-    <div class="side-rectangle"></div>
-    <div class="image-block">
-      <img src="img/quienes.png" alt="Imagen Quiénes Somos">
-    </div>
-    <div class="text-block">
-      <h2>Quiénes somos</h2>
-      <div class="divider-line"></div>
-      <p>
-        En <strong>Grupo REYSALH</strong> somos una empresa inmobiliaria líder en bienes y servicios integrales en los cuales manejamos tres rubros,
-        entre ellos lotificaciones y urbanizaciones, viviendas y plantación de madera Teca.
-      </p>
-      <p>
-        Contamos con experiencia en el mercado nacional e internacional, garantizando a nuestros clientes asesoría personalizada,
-        financiamiento directo, procesos claros y rápidos desde el primer día según la necesidad.
-      </p>
-    </div>
-  </section>
-
+<section class="quienes-section">
+  <div class="quienes-image">
+    <img src="img/quienes.png" alt="Imagen Quiénes Somos">
+  </div>
+  <div class="quienes-text">
+    <h2>Quiénes somos</h2>
+    <div class="divider-line"></div>
+    <p>
+      En <strong>Grupo REYSALH</strong> somos una empresa inmobiliaria líder en bienes y servicios integrales en los cuales manejamos tres rubros,
+      entre ellos lotificaciones y urbanizaciones, viviendas y plantación de madera Teca.
+    </p>
+    <p>
+      Contamos con experiencia en el mercado nacional e internacional, garantizando a nuestros clientes asesoría personalizada,
+      financiamiento directo, procesos claros y rápidos desde el primer día según la necesidad.
+    </p>
+  </div>
+</section>
   <!-- SECCIÓN MISIÓN -->
-  <section class="section-block section-block--mission">
-    <div class="text-block">
+  <section class="mission-section">
+    <div class="mission-text">
       <h2>Misión</h2>
-      <div class="divider-line"></div>
-      <p>
-        Somos una empresa con autonomía y responsabilidad social que proporciona con la máxima capacidad programas, procesos y métodos especializados para proyectos en diferentes zonas geográficas del país a efecto de satisfacer las necesidades de las familias salvadoreñas facilitando la tenencia de sus lotes, parcelas y viviendas propias.
+      <p>Somos una empresa con autonomía y responsabilidad social que proporciona con la máxima capacidad programas,
+        procesos y métodos especializados para proyectos en diferentes zonas geográficas del país a efecto de satisfacer
+        las necesidades de las familias salvadoreñas facilitando la tenencia de sus lotes, parcelas y viviendas propias.
       </p>
     </div>
-    <div class="image-block">
+    <div class="mission-image">
       <img src="img/mision2.png" alt="Imagen Misión">
     </div>
-    <div class="side-rectangle"></div>
+    <div class="mission-rectangle"></div>
   </section>
 
   <!-- SECCIÓN VISIÓN -->
-  <section class="section-block">
-    <div class="side-rectangle"></div>
-    <div class="image-block">
+  <section class="vision-section">
+    <div class="vision-rectangle"></div>
+    <div class="vision-image">
       <img src="img/vision1.png" alt="Imagen Visión">
     </div>
-    <div class="text-block">
+    <div class="vision-text">
       <h2>Visión</h2>
-      <div class="divider-line"></div>
-      <p>
-        Posicionarnos y consolidarnos como una empresa moderna, en continuo crecimiento sostenible, desarrollo sustentable y mejoramiento competitivo en el mercado inmobiliario salvadoreño.
-      </p>
+      <p>Posicionarnos y consolidarnos como una empresa moderna, en continuo crecimiento sostenible, desarrollo
+        sustentable y mejoramiento competitivo en el mercado inmobiliario salvadoreño.</p>
     </div>
   </section>
 
