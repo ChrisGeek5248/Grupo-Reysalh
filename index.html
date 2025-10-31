@@ -8,311 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background-color: #ffffff;
-      overflow-x: hidden;
-    }
-
-  header {
-    position: absolute;
-    inset: 0 auto auto 0; /* top:0; left:0; elimina el espacio de borde */
-    width: 100%;          /* usa porcentaje, no vw */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: clamp(14px, 2vw, 40px) clamp(40px, 4vw, 80px);
-    background: url('img/Header.png') top center no-repeat;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    min-height: clamp(150px, 18vw, 350px);
-
-    z-index: 10;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  }
-
-    header img { height: 80px; object-fit: contain; }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #444;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #0e9a9a; }
-
-    .social-icons a {
-      color: #444;
-      margin-left: 10px;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover { color: #0e9a9a; }
-
-    .hero-section img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .label-section {
-      text-align: center;
-      background-color: #f5f5f5;
-      padding: 20px 0;
-    }
-    .label-section span {
-      background-color: #6c4c2b;
-      color: white;
-      padding: 10px 25px;
-      border-radius: 20px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .gallery-section {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      padding: 40px 60px;
-    }
-    .gallery-item img {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-
-    /* === SECCIONES PRINCIPALES === */
-    .section-block {
-      display: grid;
-      grid-template-columns: 0.05fr 1fr 1fr;
-      align-items: stretch;
-      width: 100%;
-      margin-top: 40px;
-      background-color: #ffffff;
-      position: relative;
-    }
-
-    /* SOLO MISIÓN AJUSTADA */
-    .section-block--mission {
-      grid-template-columns: 3fr 3fr 0.2fr;
-    }
-
-    .side-rectangle {
-      background-color: #737764;
-      width: 100%;
-      border-top: 100px solid #ffffff;
-      border-bottom: 100px solid #ffffff;
-    }
-
-    .text-block {
-      background-color: #737764;
-      color: #f5f5e9;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 40px 80px;
-      border-top: 100px solid #ffffff;
-      border-bottom: 100px solid #ffffff;
-    }
-
-    .text-block h2 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .divider-line {
-      height: 2px;
-      background-color: #d9c9a6;
-      width: 100%;
-      margin: 20px 0;
-      border-radius: 1px;
-    }
-
-    .text-block p {
-      font-size: 18px;
-      line-height: 1.7;
-      text-align: justify;
-    }
-
-    .image-block img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: 10px solid #eed9ba;
-      display: block;
-    }
-
-
-    /* === SECCIÓN BLANCA CENTRADA === */
-    .info-section {
-      text-align: center;
-      padding: 60px 120px;
-      background-color: #ffffff;
-      color: #737764;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .info-section p {
-      margin-bottom: 20px;
-    }
-
-    /* === SECCIÓN DE BENEFICIOS === */
-    .benefits-section {
-      background-color: #737764;
-      color: #f5f5e9;
-      padding: 60px 80px;
-      text-align: center;
-    }
-
-    .benefits-section h2 {
-      font-size: 30px;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      justify-content: center;
-    }
-
-    .benefit-box {
-      background-color: #f5f5e9;
-      color: #444;
-      padding: 30px;
-      border-radius: 10px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .benefit-box h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .benefit-box p {
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    /* === SECCIÓN DE PROVEEDORES === */
-    .providers-section {
-      background-color: #ffffff;
-      text-align: center;
-      padding: 60px 40px 80px;
-    }
-
-    .providers-section h2 {
-      color: #737764;
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
-
-    .providers-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 60px;
-    }
-
-    .providers-logos img {
-      height: 70px;
-      object-fit: contain;
-    }
-
-    footer {
-      background: url('img/Footer.png') bottom center no-repeat #ffffff;
-      background-size: 100% auto;
-      width: 100%;
-      padding: 150px 60px 60px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      font-size: 14px;
-      position: relative;
-      z-index: 5;
-      min-height: 250px;
-    }
-
-    footer h4 {
-      color: #7c3e14;
-      margin-bottom: 10px;
-    }
-
-    footer a {
-      color: #444;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 5px;
-      transition: color 0.3s;
-    }
-
-    footer a:hover {
-      color: #0e9a9a;
-    }
-
-    footer .social a {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 16px;
-    }
-
-    
-  @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: url('img/headermovil.png') top center no-repeat;
-      background-size: cover;
-      min-height: 240px;
-    }
-
-      header img {
-        height: 40px; /* mitad del tamaño normal */
-      }
-
-      nav {
-        margin-top: 10px;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 6px 10px;
-      }
-      .hero-section{
-        margin-top: 33%;
-      }
-    }
-    .divider-line {
-  height: 2px;
-  background-color: #d9c9a6; /* color suave similar al borde del recuadro */
-  width: 100%;
-  margin: 0 auto;
-}
-
-  </style>
+  <link rel="stylesheet" href="css/parallax.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/parallax.js" defer></script>
 </head>
 <body>
   <header>
-    <img src="https://i.ibb.co/KxkmFNN3/REYSALH-Logo.png" alt="Logo Grupo Inmobiliario">
+    <img src="img/REYSALH Logo.png" alt="Logo Grupo Inmobiliario">
     <nav>
       <a href="#">Inicio</a>
       <a href="#">Madera Teca</a>
@@ -334,18 +36,21 @@
     <span>Finca y Plantación de Teca (Río Lempa)</span>
   </section>
 
+  <!-- SECCIÓN GALERÍA MODIFICADA -->
   <section class="gallery-section">
-    <div class="gallery-item"><img src="img/gale1.png" alt="Teca 1"></div>
-    <div class="gallery-item"><img src="img/gale2.png" alt="Teca 2"></div>
-    <div class="gallery-item"><img src="img/gale3.png" alt="Teca 3"></div>
-    <div class="gallery-item"><img src="img/gale4.png" alt="Teca 4"></div>
-    <div class="gallery-item"><img src="img/gale5.png" alt="Teca 5"></div>
-    <div class="gallery-item"><img src="img/gale6.png" alt="Teca 6"></div>
+    <div class="gallery-item parallax parallax-delay-1"><img src="img/gale1.png" alt="Teca 1"></div>
+    <div class="gallery-item parallax parallax-delay-2"><img src="img/gale2.png" alt="Teca 2"></div>
+    <div class="gallery-item parallax parallax-delay-3"><img src="img/gale3.png" alt="Teca 3"></div>
+    <div class="gallery-item parallax parallax-delay-4"><img src="img/gale4.png" alt="Teca 4"></div>
+    <div class="gallery-item parallax parallax-delay-5"><img src="img/gale5.png" alt="Teca 5"></div>
+    <div class="gallery-item parallax parallax-delay-6"><img src="img/gale6.png" alt="Teca 6"></div>
   </section>
 
   <!-- SECCIÓN QUIÉNES SOMOS -->
-  <section class="section-block">
-    <div class="side-rectangle"></div>
+  <section class="section-block parallax parallax-delay-1">
+    <div class="side-rectangle">
+      <div class="divider-line-m"></div>
+    </div>
     <div class="image-block">
       <img src="img/quienes.png" alt="Imagen Quiénes Somos">
     </div>
@@ -364,7 +69,7 @@
   </section>
 
   <!-- SECCIÓN MISIÓN -->
-  <section class="section-block section-block--mission">
+  <section class="section-block section-block--mission parallax parallax-delay-2">
     <div class="text-block">
       <h2>Misión</h2>
       <div class="divider-line"></div>
@@ -375,12 +80,12 @@
     <div class="image-block">
       <img src="img/mision2.png" alt="Imagen Misión">
     </div>
-    <div class="side-rectangle"></div>
+    <div class="side-rectangle"><div class="divider-line-m"></div></div>
   </section>
 
   <!-- SECCIÓN VISIÓN -->
-  <section class="section-block">
-    <div class="side-rectangle"></div>
+  <section class="section-block parallax parallax-delay-3">
+    <div class="side-rectangle"><div class="divider-line-m"></div></div>
     <div class="image-block">
       <img src="img/vision1.png" alt="Imagen Visión">
     </div>
@@ -403,24 +108,24 @@
       región.</p>
   </section>
 
-  <!-- SECCIÓN BENEFICIOS -->
-  <section class="benefits-section">
+  <!-- SECCIÓN BENEFICIOS MODIFICADA -->
+  <section class="benefits-section parallax parallax-delay-1">
     <h2>Beneficios de Invertir con nosotros</h2>
     <div class="benefits-grid">
-      <div class="benefit-box">
+      <div class="benefit-box parallax parallax-delay-2">
         <h3>Seguridad en tu inversión</h3>
         <p>Ya sea que te encuentres en El Salvador o vivas en el exterior, en estamos disponibles para recibirte,
           resolver tus dudas y acompañarte en cada paso del proceso de compra.</p>
       </div>
-      <div class="benefit-box">
+      <div class="benefit-box parallax parallax-delay-3">
         <h3>Valor que crece con el tiempo</h3>
         <p>Nuestros terrenos están ubicados en zonas con alto potencial de desarrollo. Tu inversión se valoriza.</p>
       </div>
-      <div class="benefit-box">
+      <div class="benefit-box parallax parallax-delay-4">
         <h3>Financiamiento accesible</h3>
         <p>Te ofrecemos planes de pago flexibles directamente con nosotros.</p>
       </div>
-      <div class="benefit-box">
+      <div class="benefit-box parallax parallax-delay-5">
         <h3>Ideal para quienes viven en el exterior</h3>
         <p>Facilitamos el proceso para salvadoreños en el extranjero con atención personalizada y comunicación
           constante.</p>
@@ -428,19 +133,20 @@
     </div>
   </section>
 
-  <!-- SECCIÓN PROVEEDORES Y ASOCIADOS -->
-  <section class="providers-section">
+  <!-- SECCIÓN PROVEEDORES Y ASOCIADOS MODIFICADA -->
+  <section class="providers-section parallax parallax-delay-1">
     <h2>PROVEEDORES Y ASOCIADOS</h2>
     <div class="providers-logos">
-      <img src="img/Logo Ministerio de Agricultura y Ganadería de El Salvador.png" alt="MAG">
-      <img src="img/Autoridad Salvadoreña del Agua.png" alt="ASA">
-      <img src="img/HIDROTEC.png" alt="Hidrotec">
-      <img src="img/PRODEL.png" alt="Prodel">
+      <img class="parallax parallax-delay-2" src="img/Logo Ministerio de Agricultura y Ganadería de El Salvador.png" alt="MAG">
+      <img class="parallax parallax-delay-3" src="img/Autoridad Salvadoreña del Agua.png" alt="ASA">
+      <img class="parallax parallax-delay-4" src="img/HIDROTEC.png" alt="Hidrotec">
+      <img class="parallax parallax-delay-5" src="img/PRODEL.png" alt="Prodel">
     </div>
   </section>
 
+  <!-- PIE DE PÁGINA MODIFICADO -->
   <footer>
-    <div class="social">
+    <div class="social parallax parallax-delay-1">
       <h4>Redes Sociales</h4>
       <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
       <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
@@ -448,7 +154,7 @@
       <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
 
-    <div class="links">
+    <div class="links parallax parallax-delay-2">
       <h4>Sitios de Interés</h4>
       <a href="#">Inicio</a>
       <a href="#">Madera Teca</a>
@@ -456,13 +162,13 @@
       <a href="#">Servicios Básicos</a>
     </div>
 
-    <div class="contact">
+    <div class="contact parallax parallax-delay-3">
       <h4>Contáctenos</h4>
       <p>33 Av Norte, Res. Decápolis, Pasaje Los Ángeles #35<br>San Salvador, El Salvador</p>
       <p>(+503) 0000-0000</p>
       <p>gruporeysalh@gmail.com</p>
     </div>
   </footer>
-</body>
+</html>
 
 </html>

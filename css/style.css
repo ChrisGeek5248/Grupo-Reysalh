@@ -1,0 +1,304 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* === HEADER === */
+header {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(14px, 2vw, 40px) clamp(40px, 4vw, 80px);
+  background: url('../img/Header.png') top center no-repeat;
+  background-size: 100% auto;
+  min-height: clamp(150px, 18vw, 350px);
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+header img { height: 80px; object-fit: contain; }
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+nav a:hover { color: #0e9a9a; }
+
+.social-icons a {
+  color: #444;
+  margin-left: 10px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+.social-icons a:hover { color: #0e9a9a; }
+
+/* === HERO === */
+.hero-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* === LABEL “Finca y Plantación de Teca” === */
+.label-section {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 16px 0;
+}
+.label-section span {
+  background-color: #6c4c2b;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(12px, 3vw, 16px);
+  letter-spacing: 0.5px;
+  display: inline-block;
+  max-width: 95%;
+  white-space: normal;
+  line-height: 1.3;
+}
+
+/* === GALERÍA === */
+.gallery-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px; /* antes 20px */
+  padding: 30px 20px;
+}
+.gallery-item img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* === SECCIONES GENERALES (misión, visión, etc.) === */
+.section-block {
+  display: grid;
+  grid-template-columns: 0.05fr 1fr 1fr;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 40px;
+  background-color: #ffffff;
+  position: relative;
+}
+.section-block--mission {
+  grid-template-columns: 3fr 3fr 0.2fr;
+}
+
+.side-rectangle {
+  background-color: #737764;
+  width: 100%;
+  border-top: 100px solid #ffffff;
+  border-bottom: 100px solid #ffffff;
+  padding: 130px 0px;
+}
+
+.text-block {
+  background-color: #737764;
+  color: #f5f5e9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0px;
+  border-top: 100px solid #ffffff;
+  border-bottom: 100px solid #ffffff;
+}
+.text-block h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.text-block p {
+  font-size: 18px;
+  line-height: 1.7;
+  text-align: justify;
+  padding: 40px 60px;
+}
+
+/* === DIVISORES === */
+.divider-line {
+  height: 2px;
+  background-color: #d9c9a6;
+  width: 100%;
+  margin: 20px 0;
+  border-radius: 1px;
+}
+.divider-line-m {
+  height: 2px;
+  background-color: #d9c9a6;
+  width: 100%;
+  margin: 40px 0;
+  border-radius: 1px;
+}
+
+/* === IMÁGENES === */
+.image-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 10px solid #eed9ba;
+  display: block;
+}
+
+/* === INFO SECTION === */
+.info-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  color: #737764;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* === BENEFICIOS === */
+.benefits-section {
+  background-color: #737764;
+  color: #f5f5e9;
+  padding: 60px 30px;
+  text-align: center;
+}
+.benefits-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  justify-content: center;
+}
+.benefit-box {
+  background-color: #f5f5e9;
+  color: #444;
+  padding: 25px;
+  border-radius: 10px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* === PROVEEDORES === */
+.providers-section {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 60px 20px 80px;
+}
+.providers-section h2 {
+  color: #737764;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.providers-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.providers-logos img {
+  height: 60px;
+  object-fit: contain;
+}
+
+/* === FOOTER === */
+footer {
+  background: url('../img/Footer.png') bottom center no-repeat #ffffff;
+  background-size: 100% auto;
+  width: 100%;
+  padding: 100px 40px 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 14px;
+  min-height: 250px;
+}
+footer h4 { color: #7c3e14; margin-bottom: 10px; }
+footer a { color: #444; text-decoration: none; display: block; margin-bottom: 5px; transition: color 0.3s; }
+footer a:hover { color: #0e9a9a; }
+footer .social a { font-size: 16px; margin-bottom: 5px; display: block; }
+
+/* === MÓVIL === */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    background: url('../img/headermovil.png') top center no-repeat;
+    background-size: cover;
+    min-height: 240px;
+  }
+
+  header img { height: 40px; }
+
+  nav { margin-top: 10px; }
+  nav a {
+    display: inline-block;
+    margin: 6px 10px;
+  }
+
+  .hero-section { margin-top: 33%; }
+
+  .label-section span {
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 14px;
+  }
+
+  .gallery-section {
+    padding: 20px 15px;
+    gap: 6px; /* más juntas */
+  }
+
+  .gallery-item img {
+    border-radius: 5px;
+    box-shadow: none;
+  }
+
+  /* Actualizaciones para móvil */
+  .section-block,
+  .section-block--mission {
+    grid-template-columns: 1fr !important;
+    margin-top: 20px;
+  }
+
+  .side-rectangle {
+    display: none;
+  }
+
+  .text-block {
+    border-top: 20px solid #ffffff;
+    border-bottom: 20px solid #ffffff;
+    padding: 30px 20px;
+  }
+
+  .text-block p {
+    padding: 20px;
+  }
+
+  .image-block {
+    height: 300px;
+  }
+
+  .image-block img {
+    height: 100%;
+    object-fit: cover;
+    border-width: 5px;
+  }
+}
