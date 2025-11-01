@@ -22,6 +22,19 @@ header {
   z-index: 10;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
+.divider-line {
+  width: 100%;
+  height: 3px;
+  background-color: #eed9ba;
+  margin: 10px auto;
+}
+
+.divider-line-m {
+  width: 100%;
+  height: 3px;
+  background-color: #eed9ba;
+  margin: auto;
+}
 
 header img { height: 80px; object-fit: contain; }
 
@@ -87,23 +100,27 @@ nav a:hover { color: #0e9a9a; }
 /* === SECCIONES GENERALES (misión, visión, etc.) === */
 .section-block {
   display: grid;
-  grid-template-columns: 0.05fr 1fr 1fr;
+  grid-template-columns: 0.05fr 1fr 1.2fr;
   align-items: stretch;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 20px; /* Reducido de 40px a 20px */
   background-color: #ffffff;
   position: relative;
+  max-height: 400px; /* Altura máxima añadida */
+  padding: 0 80px 0 80px;
 }
+
 .section-block--mission {
   grid-template-columns: 3fr 3fr 0.2fr;
+  max-height: 400px; /* Altura máxima añadida */
 }
 
 .side-rectangle {
   background-color: #737764;
   width: 100%;
-  border-top: 100px solid #ffffff;
-  border-bottom: 100px solid #ffffff;
-  padding: 130px 0px;
+  border-top: 65px solid #ffffff; /* Reducido de 100px */
+  border-bottom: 65px solid #ffffff; /* Reducido de 100px */
+  padding: 80px 0px; /* Reducido de 130px */
 }
 
 .text-block {
@@ -112,46 +129,33 @@ nav a:hover { color: #0e9a9a; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 0px;
-  border-top: 100px solid #ffffff;
-  border-bottom: 100px solid #ffffff;
-}
-.text-block h2 {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 10px;
+  padding: 20px 0px; /* Reducido de 40px */
+  border-top: 65px solid #ffffff; /* Reducido de 100px */
+  border-bottom: 65px solid #ffffff; /* Reducido de 100px */
   text-align: center;
 }
+
+.text-block h2 {
+  font-size: 28px; /* Reducido de 36px */
+  margin-bottom: 5px; /* Reducido de 10px */
+}
+
 .text-block p {
-  font-size: 18px;
-  line-height: 1.7;
-  text-align: justify;
-  padding: 40px 60px;
+  justify-content: center;
+  font-size: 16px; /* Reducido de 18px */
+  line-height: 1.5;
+  padding: 20px 40px; /* Reducido de 40px 60px */
 }
 
-/* === DIVISORES === */
-.divider-line {
-  height: 2px;
-  background-color: #d9c9a6;
-  width: 100%;
-  margin: 20px 0;
-  border-radius: 1px;
-}
-.divider-line-m {
-  height: 2px;
-  background-color: #d9c9a6;
-  width: 100%;
-  margin: 40px 0;
-  border-radius: 1px;
+.image-block {
+  height: 400px; /* Altura fija añadida */
 }
 
-/* === IMÁGENES === */
 .image-block img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 10px solid #eed9ba;
-  display: block;
+  border: 5px solid #eed9ba; /* Reducido de 10px */
 }
 
 /* === INFO SECTION === */
@@ -274,31 +278,67 @@ footer .social a { font-size: 16px; margin-bottom: 5px; display: block; }
   /* Actualizaciones para móvil */
   .section-block,
   .section-block--mission {
-    grid-template-columns: 1fr !important;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 30px 0;
+    height: auto;
+    max-height: none;
   }
 
+  .image-block {
+    display: block;
+    width: 100%;
+    height: 250px; /* Altura fija para la imagen */
+    margin-bottom: 15px;
+  }
+
+  .text-block {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #737764;
+    height: auto;
+    border: none;
+  }
+
+  .image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Asegura que la imagen se muestre como bloque */
+    border: 3px solid #eed9ba;
+  }
+
+  .text-block h2 {
+    margin-top: 0;
+    font-size: 24px;
+  }
+
+  .text-block p {
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Eliminar cualquier propiedad que pueda estar causando conflicto */
   .side-rectangle {
     display: none;
   }
 
-  .text-block {
-    border-top: 20px solid #ffffff;
-    border-bottom: 20px solid #ffffff;
-    padding: 30px 20px;
+  /* separación específica para Misión (solo móvil) */
+  .section-block--mission .text-block {
+    margin-bottom: 24px; /* separa el cuadro de texto de la imagen */
+    padding-bottom: 18px; /* evita que el contenido llegue justo al borde */
   }
 
-  .text-block p {
-    padding: 20px;
+  .section-block--mission .image-block {
+    margin-top: 12px; /* espacio extra por si la imagen se "pega" */
   }
 
-  .image-block {
-    height: 300px;
-  }
-
-  .image-block img {
-    height: 100%;
-    object-fit: cover;
-    border-width: 5px;
+  /* asegurar que la línea divisoria dentro de Misión no cause solapamiento */
+  .section-block--mission .divider-line {
+    margin-bottom: 14px;
   }
 }
